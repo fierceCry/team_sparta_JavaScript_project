@@ -16,11 +16,15 @@
 - CSS
 - JavaScript
 - Fetch API를 이용한 데이터 요청
+- TMDB API를 이용한 데아터 활용
+
+![프로젝트 구현 이미지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FlobGX%2FbtsGM9vIIfB%2FGo0C08KfU4GKJf8CLOTFA1%2Fimg.png)
+![프로젝트 구현 이미지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcxHnGX%2FbtsGOuyQzLh%2FLPp1MqZ5KCePevfvTItJbk%2Fimg.png)
 
 ## 사용 방법
 
 1. 프로젝트를 클론합니다.
-2. `index.html` 파일을 브라우저에서 엽니다.
+2. `JavaScript-movie.html` 파일을 브라우저에서 엽니다.
 3. 영화 제목을 검색하여 원하는 영화를 찾습니다.
 4. 영화를 클릭하면 해당 영화의 상세 정보가 표시됩니다.
 
@@ -32,4 +36,4 @@
    git clone https://github.com/your-username/your-project.git
 
 ## 참고
-- The Movie Database API - 영화 데이터를 제공하는 API
+- [The Movie Database API](https://www.themoviedb.org/documentation/api) - 영화 데이터를 제공하는 API

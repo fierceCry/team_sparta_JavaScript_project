@@ -6,6 +6,7 @@ const options = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZDgzYjRlZTZkMDVlZTc0NGMyODRjYmQwNTliOTE2ZSIsInN1YiI6IjY2MjVhYzFiMDdmYWEyMDE4NzlhMGRjOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.XUYHliAwrHDj9KkTNjYNbcF_qnR2lvjpXe_tECYKZe8",
   },
 };
+
 fetch(
   "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
   options
@@ -14,6 +15,7 @@ fetch(
   .then((data) => {
     const movieContainer = document.getElementById("movie-container");
     const searchInput = document.getElementById("search");
+    const sortOrderSelect = document.getElementById("sort-order");
 
     const createMovieCard = (movie) => {
       const movieCard = document.createElement("div");
@@ -47,6 +49,25 @@ fetch(
 
       movieContainer.appendChild(movieCard);
     };
+
+    const sortByRating = (movies, order) => {
+      return movies.sort((a, b) => {
+        if (order === "high-to-low") {
+          return b.vote_average - a.vote_average;
+        } else {
+          return a.vote_average - b.vote_average;
+        }
+      });
+    };
+
+    sortOrderSelect.addEventListener("change", () => {
+      const selectedOrder = sortOrderSelect.value;
+      const sortedMovies = sortByRating(data.results, selectedOrder);
+      movieContainer.innerHTML = "";
+      sortedMovies.forEach((movie) => {
+        createMovieCard(movie);
+      });
+    });
 
     data.results.forEach((movie) => {
       createMovieCard(movie);

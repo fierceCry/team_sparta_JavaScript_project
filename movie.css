@@ -2,7 +2,6 @@
   .movie-card {
     width: 100%;
   }
-
   .search-input {
     width: calc(100% - 40px);
     max-width: 400px;
@@ -77,4 +76,12 @@ h1 {
   font-size: 100px;
   text-shadow: 0px 0px 10px red;
 
+}
+
+#sort-order{
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 12px;
+  text-align: center;
 }

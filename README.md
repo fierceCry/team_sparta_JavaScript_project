@@ -17,8 +17,8 @@
 - Fetch API를 이용한 데이터 요청
 - TMDB API를 이용한 데아터 활용
 
-![프로젝트 구현 이미지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FlobGX%2FbtsGM9vIIfB%2FGo0C08KfU4GKJf8CLOTFA1%2Fimg.png)
-![프로젝트 구현 이미지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcxHnGX%2FbtsGOuyQzLh%2FLPp1MqZ5KCePevfvTItJbk%2Fimg.png)
+![프로젝트 구현 이미지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FHnNTV%2FbtsGNdrHutD%2Fo44yWE8YefEmoStiFhroF0%2Fimg.png)
+![프로젝트 구현 이미지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FnBts9%2FbtsGOcyLXth%2F7afq1xIyKsLadl9ZnRlKK0%2Fimg.png)
 
 ## 사용 방법
 

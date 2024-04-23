@@ -14,8 +14,7 @@
 - HTML
 - CSS
 - JavaScript
-- Fetch API를 이용한 데이터 요청
-- TMDB API를 이용한 데아터 활용
+- Fetch API를 이용하여 TMDB API에서 데이터 요청 및 활용
 
 ![프로젝트 구현 이미지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FHnNTV%2FbtsGNdrHutD%2Fo44yWE8YefEmoStiFhroF0%2Fimg.png)
 

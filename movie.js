@@ -94,42 +94,10 @@ fetch(
 
     sortOrderSelect.addEventListener("change", () => {
       const selectedOrder = sortOrderSelect.value;
-      const sortedMovies = sortByRating([...data.results], selectedOrder); // 새로운 배열 사용
+      const sortedMovies = sortByRating([...data.results], selectedOrder);
       updateMovieList(sortedMovies);
     });
 
     updateMovieList(data.results);
-
-
-    // Enter과 검색 버튼을 사용하지 않더라고 바로 검색이 가능할수있는 코드
-    
-    // searchInput.addEventListener("input", () => {
-    //   const searchTerm = searchInput.value.toLowerCase();
-
-    //   if (searchTerm === "") {
-    //     movieContainer.innerHTML = "";
-
-    //     data.results.forEach((movie) => {
-    //       createMovieCard(movie);
-    //     });
-    //   } else {
-    //     const filteredMovies = data.results.filter((movie) =>
-    //       movie.title.toLowerCase().includes(searchTerm)
-    //     );
-    //     movieContainer.innerHTML = "";
-
-    //     if (filteredMovies.length === 0) {
-    //       const noResultMessage = document.createElement("p");
-    //       noResultMessage.classList.add("search");
-    //       noResultMessage.textContent = "검색 결과가 없습니다.";
-    //       movieContainer.appendChild(noResultMessage);
-    //     } else {
-    //       filteredMovies.forEach((movie) => {
-    //         createMovieCard(movie);
-    //       });
-    //     }
-    //   }
-    // });
-    
   })
   .catch((err) => console.error(err));

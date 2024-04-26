@@ -60,19 +60,6 @@ fetch(
       });
     };
 
-    sortOrderSelect.addEventListener("change", () => {
-      const selectedOrder = sortOrderSelect.value;
-      const sortedMovies = sortByRating(data.results, selectedOrder);
-      movieContainer.innerHTML = "";
-      sortedMovies.forEach((movie) => {
-        createMovieCard(movie);
-      });
-    });
-
-    data.results.forEach((movie) => {
-      createMovieCard(movie);
-    });
-
     const updateMovieList = (movies) => {
       movieContainer.innerHTML = "";
       if (movies.length === 0) {
@@ -95,10 +82,6 @@ fetch(
       updateMovieList(filteredMovies);
     });
 
-    data.results.forEach((movie) => {
-      createMovieCard(movie);
-    });
-
     searchInput.addEventListener("keypress", (event) => {
       if (event.key === "Enter") {
         const searchTerm = searchInput.value.toLowerCase();
@@ -108,6 +91,15 @@ fetch(
         updateMovieList(filteredMovies);
       }
     });
+
+    sortOrderSelect.addEventListener("change", () => {
+      const selectedOrder = sortOrderSelect.value;
+      const sortedMovies = sortByRating([...data.results], selectedOrder); // 새로운 배열 사용
+      updateMovieList(sortedMovies);
+    });
+
+    updateMovieList(data.results);
+
 
     // Enter과 검색 버튼을 사용하지 않더라고 바로 검색이 가능할수있는 코드
     
@@ -138,5 +130,6 @@ fetch(
     //     }
     //   }
     // });
+    
   })
   .catch((err) => console.error(err));

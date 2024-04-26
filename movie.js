@@ -15,6 +15,7 @@ fetch(
     const movieContainer = document.getElementById("movie-container");
     const searchInput = document.getElementById("search");
     const searchButton = document.querySelector(".search");
+    const sortOrderSelect = document.getElementById("sort-order");
 
     const createMovieCard = (movie) => {
       const movieCard = document.createElement("div");
@@ -58,6 +59,19 @@ fetch(
         }
       });
     };
+
+    sortOrderSelect.addEventListener("change", () => {
+      const selectedOrder = sortOrderSelect.value;
+      const sortedMovies = sortByRating(data.results, selectedOrder);
+      movieContainer.innerHTML = "";
+      sortedMovies.forEach((movie) => {
+        createMovieCard(movie);
+      });
+    });
+
+    data.results.forEach((movie) => {
+      createMovieCard(movie);
+    });
 
     const updateMovieList = (movies) => {
       movieContainer.innerHTML = "";

@@ -73,9 +73,16 @@ h1 {
 }
 
 .search {
+  padding: 6px 7px;
+  text-align: center;
+  /* font-size: 100px;  */
+  /* text-shadow: 0px 0px 10px red; */
+
+}
+
+.button-p{
   font-size: 100px;
   text-shadow: 0px 0px 10px red;
-
 }
 
 #sort-order{

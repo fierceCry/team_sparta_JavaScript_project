@@ -14,7 +14,7 @@ fetch(
   .then((data) => {
     const movieContainer = document.getElementById("movie-container");
     const searchInput = document.getElementById("search");
-    const sortOrderSelect = document.getElementById("sort-order");
+    const searchButton = document.querySelector(".search");
 
     const createMovieCard = (movie) => {
       const movieCard = document.createElement("div");
@@ -59,45 +59,70 @@ fetch(
       });
     };
 
-    sortOrderSelect.addEventListener("change", () => {
-      const selectedOrder = sortOrderSelect.value;
-      const sortedMovies = sortByRating(data.results, selectedOrder);
+    const updateMovieList = (movies) => {
       movieContainer.innerHTML = "";
-      sortedMovies.forEach((movie) => {
-        createMovieCard(movie);
-      });
+      if (movies.length === 0) {
+        const noResultMessage = document.createElement("p");
+        noResultMessage.classList.add("button-p");
+        noResultMessage.textContent = "검색 결과가 없습니다.";
+        movieContainer.appendChild(noResultMessage);
+      } else {
+        movies.forEach((movie) => {
+          createMovieCard(movie);
+        });
+      }
+    };
+
+    searchButton.addEventListener("click", () => {
+      const searchTerm = searchInput.value.toLowerCase();
+      const filteredMovies = data.results.filter((movie) =>
+        movie.title.toLowerCase().includes(searchTerm)
+      );
+      updateMovieList(filteredMovies);
     });
 
     data.results.forEach((movie) => {
       createMovieCard(movie);
     });
 
-    searchInput.addEventListener("input", () => {
-      const searchTerm = searchInput.value.toLowerCase();
-
-      if (searchTerm === "") {
-        movieContainer.innerHTML = "";
-
-        data.results.forEach((movie) => {
-          createMovieCard(movie);
-        });
-      } else {
+    searchInput.addEventListener("keypress", (event) => {
+      if (event.key === "Enter") {
+        const searchTerm = searchInput.value.toLowerCase();
         const filteredMovies = data.results.filter((movie) =>
           movie.title.toLowerCase().includes(searchTerm)
         );
-        movieContainer.innerHTML = "";
-
-        if (filteredMovies.length === 0) {
-          const noResultMessage = document.createElement("p");
-          noResultMessage.classList.add("search");
-          noResultMessage.textContent = "검색 결과가 없습니다.";
-          movieContainer.appendChild(noResultMessage);
-        } else {
-          filteredMovies.forEach((movie) => {
-            createMovieCard(movie);
-          });
-        }
+        updateMovieList(filteredMovies);
       }
     });
+
+    // Enter과 검색 버튼을 사용하지 않더라고 바로 검색이 가능할수있는 코드
+    
+    // searchInput.addEventListener("input", () => {
+    //   const searchTerm = searchInput.value.toLowerCase();
+
+    //   if (searchTerm === "") {
+    //     movieContainer.innerHTML = "";
+
+    //     data.results.forEach((movie) => {
+    //       createMovieCard(movie);
+    //     });
+    //   } else {
+    //     const filteredMovies = data.results.filter((movie) =>
+    //       movie.title.toLowerCase().includes(searchTerm)
+    //     );
+    //     movieContainer.innerHTML = "";
+
+    //     if (filteredMovies.length === 0) {
+    //       const noResultMessage = document.createElement("p");
+    //       noResultMessage.classList.add("search");
+    //       noResultMessage.textContent = "검색 결과가 없습니다.";
+    //       movieContainer.appendChild(noResultMessage);
+    //     } else {
+    //       filteredMovies.forEach((movie) => {
+    //         createMovieCard(movie);
+    //       });
+    //     }
+    //   }
+    // });
   })
   .catch((err) => console.error(err));

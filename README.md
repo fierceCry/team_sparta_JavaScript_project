@@ -4,7 +4,7 @@
 
 ## 주요 기능
 
-- 영화 검색 기능: 사용자가 영화 제목을 검색하여 해당 영화의 상세 정보를 확인할 수 있게 하였고, 영화 제목을 입력하는 즉시 결과가 바로 필터링되어 화면에 표시될 수 있게 하였습니다.
+- 영화 검색 기능은 사용자가 영화 제목을 입력하여 해당 영화의 상세 정보를 확인할 수 있으며, 검색어를 입력한 후 Enter 키를 누르거나 검색 버튼을 클릭하여 검색을 실행할 수 있습니다.
 - 영화 목록: 초기 페이지 로드 시 TMDB API를 통해 가져온 데이터를 사용하여 영화 목록이 표시될 수 있게 만들었습니다.
 - 반응형 웹사이트: 웹사이트를 이용할 때 레이아웃이 매끄럽게 조정되어 보다 편리한 경험을 이용할 수 있습니다.
 - 정렬 기능: 평균 평점을 사용하여 평점 높은 순, 평점 낮은 순으로 정렬할 수 있게 만들었습니다.
@@ -16,9 +16,9 @@
 - JavaScript
 - Fetch API를 이용하여 TMDB API에서 데이터 요청 및 활용
 
-![프로젝트 구현 이미지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FHnNTV%2FbtsGNdrHutD%2Fo44yWE8YefEmoStiFhroF0%2Fimg.png)
+![프로젝트 구현 이미지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcKndeE%2FbtsGXAk4LcM%2FblIVJE4xd35Dr2oba2rgkk%2Fimg.png)
 
-![프로젝트 구현 이미지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FnBts9%2FbtsGOcyLXth%2F7afq1xIyKsLadl9ZnRlKK0%2Fimg.png)
+![프로젝트 구현 이미지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FuKRv8%2FbtsGVtuaMOU%2FUs06rGNfkTbaA2D5LpLJgk%2Fimg.png)
 
 ## 사용 방법
 

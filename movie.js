@@ -6,73 +6,85 @@ const options = {
   },
 };
 
-fetch(
-  "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
-  options
-)
-  .then((response) => response.json())
-  .then((data) => {
-    const movieContainer = document.getElementById("movie-container");
+const fetchData = async () => {
+  try {
+    const response = await fetch("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1", options);
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
+const createMovieCard = (movie) => {
+  const movieCard = document.createElement("div");
+  movieCard.classList.add("movie-card");
+
+  const image = document.createElement("img");
+  image.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+  image.alt = movie.title;
+
+  image.addEventListener("click", () => {
+    alert(`영화 ID: ${movie.id}`);
+  });
+
+  const movieInfo = document.createElement("div");
+  movieInfo.classList.add("movie-info");
+
+  const title = document.createElement("h3");
+  title.textContent = movie.title;
+
+  const overview = document.createElement("p");
+  overview.textContent = movie.overview;
+
+  const voteAverage = document.createElement("p");
+  voteAverage.textContent = `평점: ${movie.vote_average}`;
+
+  movieInfo.appendChild(title);
+  movieInfo.appendChild(overview);
+  movieInfo.appendChild(voteAverage);
+  movieCard.appendChild(image);
+  movieCard.appendChild(movieInfo);
+
+  document.getElementById("movie-container").appendChild(movieCard);
+};
+
+const updateMovieList = (movies) => {
+  const movieContainer = document.getElementById("movie-container");
+  movieContainer.innerHTML = "";
+
+  if (movies.length === 0) {
+    const noResultMessage = document.createElement("p");
+    noResultMessage.classList.add("button-p");
+    noResultMessage.textContent = "검색 결과가 없습니다.";
+    movieContainer.appendChild(noResultMessage);
+  } else {
+    movies.forEach((movie) => {
+      createMovieCard(movie);
+    });
+  }
+};
+
+const sortByRating = (movies, order) => {
+  console.log(order)
+  return movies.sort((a, b) => {
+    if (order === "desc") {
+      return b.vote_average - a.vote_average;
+    } else {
+      return a.vote_average - b.vote_average;
+    }
+  });
+};
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const data = await fetchData();
+
+  if (data) {
     const searchInput = document.getElementById("search");
+    searchInput.focus();
+
     const searchButton = document.querySelector(".search");
     const sortOrderSelect = document.getElementById("sort-order");
-
-    const createMovieCard = (movie) => {
-      const movieCard = document.createElement("div");
-      movieCard.classList.add("movie-card");
-
-      const image = document.createElement("img");
-      image.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-      image.alt = movie.title;
-
-      image.addEventListener("click", () => {
-        alert(`영화 ID: ${movie.id}`);
-      });
-
-      const movieInfo = document.createElement("div");
-      movieInfo.classList.add("movie-info");
-
-      const title = document.createElement("h3");
-      title.textContent = movie.title;
-
-      const overview = document.createElement("p");
-      overview.textContent = movie.overview;
-
-      const voteAverage = document.createElement("p");
-      voteAverage.textContent = `평점: ${movie.vote_average}`;
-
-      movieInfo.appendChild(title);
-      movieInfo.appendChild(overview);
-      movieInfo.appendChild(voteAverage);
-      movieCard.appendChild(image);
-      movieCard.appendChild(movieInfo);
-
-      movieContainer.appendChild(movieCard);
-    };
-
-    const sortByRating = (movies, order) => {
-      return movies.sort((a, b) => {
-        if (order === "high-to-low") {
-          return b.vote_average - a.vote_average;
-        } else {
-          return a.vote_average - b.vote_average;
-        }
-      });
-    };
-
-    const updateMovieList = (movies) => {
-      movieContainer.innerHTML = "";
-      if (movies.length === 0) {
-        const noResultMessage = document.createElement("p");
-        noResultMessage.classList.add("button-p");
-        noResultMessage.textContent = "검색 결과가 없습니다.";
-        movieContainer.appendChild(noResultMessage);
-      } else {
-        movies.forEach((movie) => {
-          createMovieCard(movie);
-        });
-      }
-    };
 
     searchButton.addEventListener("click", () => {
       const searchTerm = searchInput.value.toLowerCase();
@@ -99,5 +111,5 @@ fetch(
     });
 
     updateMovieList(data.results);
-  })
-.catch((err) => console.error(err));
+  }
+});

@@ -17,8 +17,9 @@
 - JavaScript
 - Fetch API를 이용하여 TMDB API에서 데이터 요청 및 활용
 
-![프로젝트 구현 이미지](https://blog.kakaocdn.net/dn/ehxmKb/btsG2VJv2G0/TI0f4gwdkmoTkFtqheIyDK/img.gif)
-
+![프로젝트 구현 이미지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbw6Efb%2FbtsG1e30cGV%2FApcFHyior4B9pCVQXJ8SJ0%2Fimg.png)
+![프로젝트 구현 이미지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FEuUpe%2FbtsG3CixWYQ%2F4rXlXEBTCwbuVRwnKOqEJk%2Fimg.png)
+![프로젝트 구현 이미지](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fl9gDS%2FbtsG3AkIMRs%2FwkXACdx7wTlJiK2DoV9Mpk%2Fimg.png)
 ## 사용 방법
 
 1. 프로젝트를 클론합니다.

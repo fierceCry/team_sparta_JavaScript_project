@@ -73,8 +73,11 @@ h1 {
 }
 
 .search {
-  padding: 6px 7px;
+  padding: 8px 7px;
   text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
 }
 
 .button-p{
@@ -85,7 +88,7 @@ h1 {
 #sort-order{
   border: 1px solid #ccc;
   border-radius: 4px;
-  padding: 8px;
+  padding: 10px;
   font-size: 12px;
   text-align: center;
 }

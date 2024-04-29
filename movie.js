@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       updateMovieList(sortedData);
     });
 
-    const cardsPerPage = 10; // 한 페이지에 표시할 카드의 수
+    const cardsPerPage = 5; // 한 페이지에 표시할 카드의 수
     let currentPage = 1; // 현재 페이지
 
     const updatePagination = () => {
